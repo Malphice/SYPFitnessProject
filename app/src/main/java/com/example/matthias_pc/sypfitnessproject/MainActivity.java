@@ -1,5 +1,6 @@
 package com.example.matthias_pc.sypfitnessproject;
 
+import android.app.Activity;
 import android.graphics.Camera;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -15,8 +16,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 
 import com.google.zxing.Result;
+
+import java.util.ArrayList;
+import java.util.Arrays;
 
 import me.dm7.barcodescanner.zxing.ZXingScannerView;
 
@@ -25,12 +31,25 @@ public class MainActivity extends AppCompatActivity
 
     private ZXingScannerView mScannerView;
     private View test;
+    private ListView listView1;
+    private ArrayAdapter<String> muscleGroupAdapter ;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+
+        //add Items to ListView1
+        listView1 = (ListView) findViewById(R.id.listView1);
+        String [] muscleGroups = new String[] {"Chest" , "Arms", "Legs"};
+        ArrayList<String> muscleGroupsList = new ArrayList<String>(Arrays.asList(muscleGroups));
+        muscleGroupAdapter = new ArrayAdapter<String>(this, R.layout.list_rows,R.id.row1, muscleGroupsList);
+
+        listView1.setAdapter(muscleGroupAdapter);
+
+
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
