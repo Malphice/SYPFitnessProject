@@ -1,10 +1,8 @@
 package com.example.matthias_pc.sypfitnessproject;
 
-import android.app.Activity;
-import android.graphics.Camera;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AlertDialog;
 import android.util.Log;
 import android.view.View;
@@ -39,11 +37,12 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        setTitle("Please select a Category");
 
 
         //add Items to ListView1
         listView1 = (ListView) findViewById(R.id.listView1);
-        String [] muscleGroups = new String[] {"Chest" , "Arms", "Legs"};
+        String [] muscleGroups = new String[] {"Chest" ,"Shoulders","Back" , "Arms", "Legs"};
         ArrayList<String> muscleGroupsList = new ArrayList<String>(Arrays.asList(muscleGroups));
         muscleGroupAdapter = new ArrayAdapter<String>(this, R.layout.list_rows,R.id.row1, muscleGroupsList);
 
@@ -55,8 +54,8 @@ public class MainActivity extends AppCompatActivity
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Is gonna be used for something probably", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                Intent intent =new Intent(MainActivity.this, AddActivity.class);
+                startActivity(intent);
             }
         });
 

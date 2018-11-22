@@ -3,6 +3,7 @@
     package="com.example.matthias_pc.sypfitnessproject">
 
     <uses-permission android:name="android.permission.CAMERA" />
+
     <uses-feature android:name="android.hardware.camera" />
 
     <application
@@ -22,7 +23,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".CameraActivity"></activity>
+        <activity android:name=".AddActivity"></activity>
     </application>
 
 </manifest>
